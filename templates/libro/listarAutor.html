@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block title %}Listado de autores{% endblock %}
+
+{% block body %}
+
+  {% if autores %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Nacionalidad</th>
+          <th>Descripcion</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for autor in autores %}
+          <tr>
+            <td>{{ autor.id_autor }}</td>
+            <td>{{ autor.nombre }}</td>
+            <td>{{ autor.apellidos }}</td>
+            <td>{{ autor.nacionalidad }}</td>
+            <td>{{ autor.descripcion }}</td>
+            <td>
+              <a href="/libro/editarAutor/{{autor.id_autor}}">Editar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h1>No existen autores registrados</h1>
+  {% endif %}
+
+{% endblock %}
