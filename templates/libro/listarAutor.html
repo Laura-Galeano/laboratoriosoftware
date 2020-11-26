@@ -9,10 +9,15 @@
       <thead>
         <tr>
           <th>#</th>
+          <th>Cedula</th>
           <th>Nombre</th>
           <th>Apellidos</th>
-          <th>Nacionalidad</th>
-          <th>Descripcion</th>
+          <th>Nacimiento</th>
+          <th>Ciudad</th>
+          <th>Genero</th>
+          <th>Email</th>
+          <th>Temas preferidos</th>
+          <th>Suscripcion</th>
           <th>Opciones</th>
         </tr>
       </thead>
@@ -20,10 +25,15 @@
         {% for autor in autores %}
           <tr>
             <td>{{ autor.id_autor }}</td>
+            <td>{{ autro.cedula }}</td>
             <td>{{ autor.nombre }}</td>
             <td>{{ autor.apellidos }}</td>
-            <td>{{ autor.nacionalidad }}</td>
-            <td>{{ autor.descripcion }}</td>
+            <td>{{ autor.nacimiento }}</td>
+            <td>{{ autor.ciudad }}</td>
+            <td>{{ autor.genero }}</td>
+            <td>{{ autor.email }}</td>
+            <td>{{ autor.temas_preferidos }}</td>
+            <td>{{ autor.suscripcion }}</td>
             <td>
               <a href="/libro/editarAutor/{{autor.id_autor}}">Editar</a>
             </td>

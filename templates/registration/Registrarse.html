@@ -1,0 +1,103 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{% static '/css/Estilos.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
+    </head>
+
+    <body>
+        {% include 'navbarinicio.html' %}
+        <div class="img-fondo">
+            <div class="card card-registro">
+                <div class="card-body">
+                    <div class="boton-atras">
+                        <a  class="nav-link text-dark align-middle"href="#">
+                            <span class="material-icons align-middle">arrow_back_ios</span>Ir atrás
+                        </a>
+                    </div>
+                    <form class="form-sesion"  method="POST">
+                        <h1 class="letra-azul">Registrarse</h1>
+                        <div class="form-usuario">
+                            {% csrf_token %}
+                            {{ autor_form.as_p }}
+                        </div>
+                        <div class="form-check form-usuario">
+                            <input class="form-check-input" type="checkbox" id="gridCheck13">
+                            <label class="form-check-label" for="gridCheck13">
+                              Acepto las políticas de privacidad y condiciones
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary boton-sesion orange-background">Registrarse</button>
+                        <div class="form-group form-check form-usuario">
+                            <p>¿Ya tienes una cuenta?<a href="/login">Iniciar sesión</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "menu") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "menu";
+                }
+            }
+      </script>
+      <script>
+          $('.datepicker').datetimepicker(
+            {
+             format: 'd/m/Y',
+             timepicker:false,
+
+         }
+          )
+      </script>
+      <script>
+        $(document).ready(function () {
+              jQuery.datetimepicker.setLocale('es');
+        });
+      </script>
+      <script>
+          $(document).ready(function() {
+            FormValidation.Validator.mayorEdad = {
+                validate: function(validator, $field, options) {
+                    var value = $field.val();
+                    var fecha_nacimiento = moment(value, "DD-MM-YYYY");
+
+                    if(!fecha_nacimiento.isValid())
+                        return false;
+
+                    var years = moment().diff(fechanacimiento, 'years');
+
+                    return years > 18;
+
+                }
+            }
+          });
+      </script>
+    </body>
+</html>

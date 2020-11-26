@@ -1,0 +1,46 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg" >
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="navbar-brand" href="/">
+                <img src="{% static '/img/logo.png' %}"  height="50" alt="" loading="lazy">
+            </a>
+        </li>
+    </ul>
+    <ul class="nav menu perfil align-middle justify-content-center ml-auto " id="myTopnav">
+        <li class="nav-item menu-perfil">
+            <a class="nav-link text-white menu-hover" href="#"><span class="material-icons">home</span>Inicio</a>
+        </li>
+        <li class="nav-item menu-perfil">
+            <a class="nav-link text-white menu-hover" href="#"><span class="material-icons">shopping_cart</span>Mis reservas</a>
+        </li>
+        <li class="nav-item menu-perfil">
+            <a class="nav-link text-white menu-hover" href="#"><span class="material-icons">receipt</span>Noticias</a>
+        </li>
+        <li class="nav-item menu-perfil">
+            <a class="nav-link text-white menu-hover" href="#"><span class="material-icons">shopping_bag</span>Mis compras</a>
+        </li>
+        <li class="nav-item menu-perfil">
+            <a class="nav-link text-white menu-hover" href="#"><span class="material-icons">textsms</span>Amigos</a>
+        </li>
+
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </ul>
+
+    <ul class="nav align-middle justify-content-center" >
+        <li class="nav-item menu-perfil">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="material-icons">account_circle</span>{{user.username}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/libro/editarperfil">Editar Perfil</a>
+                  <a class="dropdown-item" href="/">Cerrar Sesión</a>
+                </div>
+              </div>
+        </li>
+    </ul>
+
+</nav>

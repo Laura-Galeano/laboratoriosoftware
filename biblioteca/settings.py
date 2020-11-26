@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.libro'
+    'apps.libro',
+    'crispy_forms',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [

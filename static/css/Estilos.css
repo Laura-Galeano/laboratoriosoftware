@@ -1,0 +1,381 @@
+.contenedor-pagina{
+    padding: 0%;
+    margin:0%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    min-height:100%;
+}
+.navbar{
+    background-color: #001043;
+    padding: 0%;
+    vertical-align: middle;
+    margin: 0%;
+    margin-bottom: 0%;
+}
+.nav-link{
+    padding: 0%;
+    
+    
+}
+.li.nav-item{
+    text-align: middle;
+    text-align: center;
+    text-decoration: none;
+    padding: 0%;
+    margin: 0%;
+    list-style: none;
+
+}
+
+.material-icons{
+    font-size: 20px;
+    line-height: 0;
+    margin-right: 5px;
+}
+.menu-perfil{
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+    margin-right: 20px;
+}
+
+.icon {
+    display: none;
+  }
+.perfil{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 0%;
+    margin-left: 0%;
+    margin-right: 100px;
+    position: relative;
+    list-style: none;
+    
+}
+
+.perfil a:hover{
+    background-color:#a93304;
+    left: 0px;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+}
+
+  @media screen and (max-width: 600px) {
+    .menu a{
+        display: none;
+    }
+    span.user{
+        display: none;
+    }
+    .menu a.icon {
+        float: right;
+        display: block;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .menu.responsive {
+        position: relative;
+    }
+    .menu.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .menu.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+
+.user{
+    color: white;
+    padding-top: 10px;
+}
+.dropdown-toggle{
+    margin-right: 50px;
+}
+.img-fondo{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-repeat: no-repeat;
+    background: url(../img/fondo.JPG) ;
+    background-size: 100%;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-family: Vevey,Arial, Helvetica, sans-serif;
+}
+.imagen-inicio{
+    display:block;
+    margin:auto;
+    margin-top: 50px;
+    margin-bottom:10px;
+
+}
+.img-buscar{
+    margin: 0%;
+    padding: 0%;
+    color: white;
+}
+
+.btn-ttc{
+    background-color: #a93304 ;
+}
+.btn-ttc,
+.btn-ttc:hover,
+.btn-ttc:active {
+  color: #a93304;
+  background-color: #a93304;
+}
+.contenido{
+    font:30px "Sans Serif";
+    margin-top:30px;
+    margin-bottom:50px;
+}
+
+.form-buscar{
+    font:16px "Sans Serif";
+    justify-content: center;
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin: 0% !important;
+    padding-right: 0% ;
+}
+.form-row{
+    margin: 0%;
+}
+.form-inline{
+    margin: 0%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.page-footer{
+    background-color:#001043 ;
+    margin: 0%;
+    color: white;
+    padding-top:30px;
+    padding-left: 15px;
+    padding-right: 0%;
+    padding-bottom:30px;
+    width: 100%;
+    bottom: 0;
+    box-sizing:content-box;
+    position: relative;
+   
+}
+.nav-logo{
+    margin-left: 500px;
+}
+.contactanos{
+    margin-left: 50px;
+}
+
+p{
+    margin:0%;
+    padding: 0%;
+    margin-bottom: 0 !important;
+}
+ul{
+    padding: 0%;
+    margin: 0%;
+}
+.card{
+    width: 40%;
+    padding:20px;
+    display: block;
+    margin:auto;
+    color: rgb(83, 83, 83);
+    font: 15px "Arial";
+}
+.control-group{
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+.form-usuario{
+    margin-top: 20px;
+    text-align: left!important;
+    width: 100%;
+}
+.letra-azul{
+    color:#001043 ;
+}
+.boton-sesion{
+    margin-top:20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.boton-añadiradmin{
+    margin-top:0px;
+    text-align: center;
+    vertical-align: middle;
+}
+.orange-background{
+    background-color: #a93304!important;
+    border-color: brown!important;
+}
+.boton-atras{
+    text-align: left!important;
+    color:#001043 ;
+    text-decoration: none;
+    font-size:large;
+    ;
+}
+/*checkbox-registro*/
+.selecciones{
+    margin-left: 20px;
+}
+/*checkbox-perfil*/
+.selecciones-perfil{
+    margin-left: 10px;
+    margin-right: 30px;
+}
+/*Menu para editar perfil*/
+.vertical-menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding-top: 20px;
+    background-color: #eee;
+    list-style: none;
+  }
+
+.vertical-menu .opciones {
+    
+    background-color: #eee; 
+    color: black;
+    display: block; 
+    padding: 12px; 
+    text-decoration: none; 
+    padding-left: 50px;
+}
+.titulo-menu{
+    margin-left:50px;
+    justify-content:middle;
+    text-align: middle;
+}
+.opciones:hover {
+    background-color: #ccc; 
+  }
+nav .vertical-menu{
+    height: 100%;
+    margin-left: 0%;
+    margin: 0%;
+    display: inline-block;
+}
+.div-menuvertical{
+    padding: 0%;
+    width: 100%;
+    margin: 0%;
+    margin-right: 0%;
+    float: left;
+    display: block;
+    background-color: #eee;
+}
+li .eliminar-cuenta{
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+}
+.vertical-menu .active{
+    background-color: #a93304;
+}
+
+
+/*vista editar perfil*/
+hr {
+    background-color: rgb(110, 110, 110);
+    width: 100%;
+    }
+.info-general{
+    margin-top:30px;
+    margin-bottom: 30px;
+    margin-left:20px;
+}
+.contenedor-perfil{
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+}
+
+
+
+.contenedor-contraseña{
+    padding-bottom: 200px;
+    margin: 0%;
+    width: 100%;
+}
+.contenedor-añadiradmin{
+    padding-left: 30px;
+    padding-right: 50px;
+    margin: 0%;
+    width: 100%;
+}
+.contraseña-menu{
+    height:100%;
+    background-color:#eee ;
+}
+
+/*administrar usuarios */
+.lista-admin{
+    margin-left: 20px;
+    
+}
+
+/*responsive */
+@media screen and (max-width:800px){
+
+    .page-footer{
+        position: static;
+        display: block;
+        width: 100%;
+        padding-left: 15px;
+        margin: 0%;
+        text-align: center;
+        align-content: center;
+    }
+    ul.navbar-nav{
+        padding-right: 0%;
+        margin: 0%;
+        margin-left: 0%;
+        
+    }
+    li.nav-item{
+        padding: 0%;
+        margin: 0%;
+    }
+    .logo-footer{
+        padding: 0%;
+        margin: 0%;
+        height: 50px;
+    }
+    .form-buscar{
+        padding: 20px;
+    }
+    .contenido{
+        font:20px "Sans Serif";
+        margin-top:10px;
+        margin-bottom:50px;
+    }
+    .card{
+        width: 80%;
+        padding:20px;
+        display:block;
+        margin:auto;
+        color: rgb(83, 83, 83);
+        font: 15px "Arial";
+    }
+    .letra-campos{
+        font: 15px "Arial";
+        margin-top: 10px;
+    }
+    .selecciones{
+        margin-left: 5px;
+    }
+ 
+}

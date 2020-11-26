@@ -5,3 +5,4 @@ from .models import *
 
 admin.site.register(autor)
 admin.site.register(libro)
+admin.site.register(tarjeta)

@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}Crear tarjeta{% endblock %}
+{% block body %}
+  <form method="post">
+    {% csrf_token %}
+    {% if error %}
+      <h2>{{ error }}</h2>
+    {% else %}
+      {{ tarjeta_form.as_p }}
+      <button type="submit">Crear</button>
+    {% endif %}
+  </form>
+{% endblock %}

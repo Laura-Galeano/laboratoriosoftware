@@ -1,0 +1,25 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg" >
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/logo1.png' %}"  height="50" alt="logo" loading="lazy">
+            </a>
+        </li>
+    </ul>
+    <ul class="nav menu align-middle justify-content-end ml-auto "id="myTopnav">
+        <li class="nav-item ">
+            <a class="nav-link text-white" href="/">Inicio</a>
+        </li>
+        <span class="material-icons user">account_circle</span>
+        <li class="nav-item ">
+            <a class="nav-link text-white" href="/">Iniciar Sesión</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link text-white" href="/libro/crearAutor">Registrarse</a>
+        </li>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </ul>
+</nav>
