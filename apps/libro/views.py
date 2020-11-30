@@ -47,29 +47,16 @@ def editarAutor(request,id_autor):
     return render(request, 'editarperfil.html', {'autor_form':autor_form, 'error':error})
 
 def login(request):
-    # Creamos el formulario de autenticación vacío
-    form = autorAuthenticacion()
-    if request.method == "POST":
-        # Añadimos los datos recibidos al formulario
-        form = autorAuthenticacion(data=request.POST)
-        # Si el formulario es válido...
-        if form.is_valid():
-            # Recuperamos las credenciales validadas
-            username = form.cleaned_data['usuario']
-            password = form.cleaned_data['contrasena']
-
-            # Verificamos las credenciales del usuario
-            user = authenticate(username=username, password=password)
-
-            # Si existe un usuario con ese nombre y contraseña
-            if user is not None:
-                # Hacemos el login manualmente
-                do_login(request, user)
-                # Y le redireccionamos a la portada
-                return redirect('editarperfil')
-
-    # Si llegamos al final renderizamos el formulario
-    return render(request, "registration/login.html", {'form': form})
+    if request.method == 'POST':
+        print(request.POST['usuario'])
+        data = autor.objects.get(usuario=request.POST['usuario'])
+        if data.contrasena == request.POST['contrasena']:
+            id = str(data.id_autor)
+            return redirect('/libro/editarAutor/'+id)
+        else:
+            print("El autor no existe")
+            return redirect('/login')
+    return render(request,"registration/login.html")
 
 def crearTarjeta(request):
     tarjeta_form = None
