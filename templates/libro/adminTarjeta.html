@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block title %}Administracion de tarjetas{% endblock %}
+
+{% block body %}
+  <h1>Pagina de administracion de tarjetas</h1>
+  <a href="/libro/crearTarjeta">Crear tarjeta</a>
+
+  {% if tarjetas %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID tarjeta</th>
+          <th>Nombre</th>
+          <th>Caducidad</th>
+          <th>Tipo de tarjeta</th>
+          <th>Saldo</th>
+          <th>ID Autor</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tarjeta in tarjetas %}
+        <tr>
+          <td>{{ tarjeta.id_tarjeta }}</td>
+          <td>{{ tarjeta.nombre }}</td>
+          <td>{{ tarjeta.caducidad }}</td>
+          <td>{{ tarjeta.tipo_tarjeta }}</td>
+          <td>{{ tarjeta.saldo }}</td>
+          <td>{{ tarjeta.id_autor }}</td>
+          <td>
+            <a href="/libro/editarTarjeta/{{tarjeta.id_tarjeta}}">Editar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h1>No existen tarjetas registrados</h1>
+  {% endif %}
+
+{% endblock %}

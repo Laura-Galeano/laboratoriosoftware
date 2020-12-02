@@ -7,6 +7,21 @@ class autorForm(forms.ModelForm):
         #fields = ['nombre', 'apellidos', 'nacionalidad', 'descripcion']
         fields = '__all__'
 
+        widgets = {
+            'nacimiento': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs = {
+                    'class': 'datepicker',
+                    'autocomplete': 'off',
+                    'id': 'nacimiento',
+                    'required': 'required'
+                },
+            ),
+            'contrasena': forms.PasswordInput(),
+
+        }
+
+
 class autorAuthenticacion(forms.ModelForm):
     class Meta:
         model = autor
