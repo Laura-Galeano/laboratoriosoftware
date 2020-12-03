@@ -131,8 +131,8 @@ class tarjeta(models.Model):
 
 class carrito(models.Model):
     id_compra = models.AutoField(primary_key=True)
-    id_autor = models.ForeignKey(autor, on_delete=models.CASCADE)
-    issn = models.ForeignKey(libro, on_delete=models.CASCADE)
+    id_autor = models.CharField('ID autor', max_length=30, null=True)
+    issn = models.CharField('ISSN', max_length=30, null=True)
 
     class Meta:
         verbose_name = 'Articulo'

@@ -32,10 +32,34 @@ class tarjetaForm(forms.ModelForm):
         model = tarjeta
         fields = '__all__'
 
+        widgets = {
+            'caducidad': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs = {
+                    'class': 'datepicker',
+                    'autocomplete': 'off',
+                    'id': 'caducidad',
+                    'required': 'required'
+                },
+            ),
+        }
+
 class libroForm(forms.ModelForm):
     class Meta:
         model = libro
         fields = '__all__'
+
+        widgets = {
+            'fecha_publicacion': forms.DateInput(
+                format='%d/%m/%Y',
+                attrs = {
+                    'class': 'datepicker',
+                    'autocomplete': 'off',
+                    'id': 'fecha_publicacion',
+                    'required': 'required'
+                },
+            ),
+        }
 
 class compraForm(forms.ModelForm):
     class Meta:

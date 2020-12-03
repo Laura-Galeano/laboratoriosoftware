@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate
+from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
@@ -121,19 +122,33 @@ def editarLibro(request,issn):
 
     return render(request, 'libro/crearLibro.html', {'libro_form':libro_form, 'error':error})
 
+def eliminarLibro(request,issn):
+    Libro = libro.objects.get(issn = issn)
+    Libro.delete()
+    return redirect('/libro/adminLibros')
+
 def adminTarjeta(request,id_autor):
     tarjetas = tarjeta.objects.filter(id_autor = id_autor) #libro se refiere al modelo
-    return render(request, 'libro/adminTarjeta.html', {'tarjetas':tarjetas})
+    return render(request, 'libro/adminTarjeta.html', {'tarjetas':tarjetas, 'id_autor':id_autor})
+
+def eliminarTarjeta(request,id_autor,id_tarjeta):
+    Tarjeta = tarjeta.objects.get(id_tarjeta = id_tarjeta)
+    Tarjeta.delete()
+    return redirect('/libro/adminTarjeta/'+str(id_autor))
 
 def listarLibros(request,id_autor):
     libros = libro.objects.all() #libro se refiere al modelo
     return render(request, 'libro/listarLibros.html', {'libros':libros, 'id_autor':id_autor})
 
 def comprarLibro(request,id_autor,issn):
-    compra_form = compraForm()
-    compra_form.id_autor = id_autor
-    compra_form.issn = issn
-    if compra_form.is_valid():
-        compra_form.save()
-        return redirect('/libro/editarAutor/'+str(id_autor))
-    return render(request, 'libro/comprarLibro.html', {'id_autor':id_autor, 'issn':issn})
+    try:
+        compra_form = compraForm()
+        compra_form.id_autor = str(id_autor)
+        compra_form.issn = str(issn)
+        if request.method == "POST":
+            if compra_form.is_valid():
+                compra_form.save()
+                return redirect('/libro/editarAutor/'+str(id_autor))
+    except ObjectDoesNotExist as e:
+        return HttpResponse("Hay un error")
+    return HttpResponse("Hay un error")

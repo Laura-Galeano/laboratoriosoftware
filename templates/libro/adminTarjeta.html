@@ -17,6 +17,7 @@
           <th>Saldo</th>
           <th>ID Autor</th>
           <th>Editar</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,9 @@
           <td>{{ tarjeta.id_autor }}</td>
           <td>
             <a href="/libro/editarTarjeta/{{tarjeta.id_tarjeta}}">Editar</a>
+          </td>
+          <td>
+            <a href="/libro/eliminarTarjeta/{{id_autor}}/{{tarjeta.id_tarjeta}}">Eliminar</a>
           </td>
         </tr>
         {% endfor %}
