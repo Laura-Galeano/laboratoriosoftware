@@ -27,6 +27,11 @@ class autor(models.Model):
         ('Filosofía', 'Filosofía'),('Arquitectura', 'Arquitectura'),('Arte', 'Arte'), ('Gastronomía', 'Gastronomía'),('Varios', 'Varios'),
     ]
 
+    tipos_autor=[
+        ('Cliente','Cliente'),
+        ('Administrador','Administrador'),
+    ]
+
     id_autor = models.AutoField(primary_key=True)
     cedula = models.CharField('Cedula', max_length=20, blank=False, null=True, unique=True)
     nombre = models.CharField(max_length=200, blank=False, null=False)
@@ -39,6 +44,7 @@ class autor(models.Model):
     usuario = models.CharField('Nombre de usuario', unique=True, max_length=100, null=True)
     contrasena = models.CharField('Contrasena', max_length=30, null=True, blank=False)
     suscripcion = models.BooleanField('Suscribirme a noticias',blank=True, null=True, default=False)
+    tipo_autor = models.CharField('Tipo de usuario', blank=True, null=True, choices=tipos_autor, default='Cliente', max_length=20)
     #nacionalidad = models.CharField(max_length=100, blank=False, null=False)
     #descripcion = models.TextField(blank=False, null=False)
     #fecha_creacion = models.DateField('Fecha de creacion', auto_now=True, auto_now_add=False)
@@ -122,3 +128,15 @@ class tarjeta(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class carrito(models.Model):
+    id_compra = models.AutoField(primary_key=True)
+    id_autor = models.ForeignKey(autor, on_delete=models.CASCADE)
+    issn = models.ForeignKey(libro, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Articulo'
+        verbose_name_plural = 'Articulos'
+
+    def __str__(self):
+        return self.id_autor

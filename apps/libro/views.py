@@ -33,9 +33,9 @@ def editarAutor(request,id_autor):
     error = None
     try:
         Autor = autor.objects.get(id_autor = id_autor)
+        tipo_autor = Autor.tipo_autor
         if request.method == 'GET':
             autor_form = autorForm(instance = Autor)
-            print(autor_form)
         else:
             autor_form = autorForm(request.POST, instance=Autor)
             if autor_form.is_valid():
@@ -44,7 +44,7 @@ def editarAutor(request,id_autor):
     except ObjectDoesNotExist as e:
         error = e
 
-    return render(request, 'editarperfil.html', {'autor_form':autor_form, 'error':error, 'id_autor':id_autor})
+    return render(request, 'editarperfil.html', {'autor_form':autor_form, 'error':error, 'id_autor':id_autor, 'tipo_autor':tipo_autor})
 
 def login(request):
     if request.method == 'POST':
@@ -124,3 +124,16 @@ def editarLibro(request,issn):
 def adminTarjeta(request,id_autor):
     tarjetas = tarjeta.objects.filter(id_autor = id_autor) #libro se refiere al modelo
     return render(request, 'libro/adminTarjeta.html', {'tarjetas':tarjetas})
+
+def listarLibros(request,id_autor):
+    libros = libro.objects.all() #libro se refiere al modelo
+    return render(request, 'libro/listarLibros.html', {'libros':libros, 'id_autor':id_autor})
+
+def comprarLibro(request,id_autor,issn):
+    compra_form = compraForm()
+    compra_form.id_autor = id_autor
+    compra_form.issn = issn
+    if compra_form.is_valid():
+        compra_form.save()
+        return redirect('/libro/editarAutor/'+str(id_autor))
+    return render(request, 'libro/comprarLibro.html', {'id_autor':id_autor, 'issn':issn})

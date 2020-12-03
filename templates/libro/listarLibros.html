@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block title %}Administracion de libros{% endblock %}
+
+{% block body %}
+  <h1>Pagina de compra de libros</h1>
+
+  {% if libros %}
+    <table>
+      <thead>
+        <tr>
+          <th>ISSN</th>
+          <th>Titulo</th>
+          <th>Id del autor</th>
+          <th>Paginas</th>
+          <th>Editorial</th>
+          <th>Idioma</th>
+          <th>Fecha de publicacion</th>
+          <th>Nuevo</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Agotado</th>
+          <th>Genero</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for libro in libros %}
+        <tr>
+          <td>{{ libro.issn }}</td>
+          <td>{{ libro.titulo }}</td>
+          <td>{{ libro.autor_id }}</td>
+          <td>{{ libro.paginas }}</td>
+          <td>{{ libro.editorial }}</td>
+          <td>{{ libro.idioma }}</td>
+          <td>{{ libro.fecha_publicacion }}</td>
+          <td>{{ libro.es_nuevo }}</td>
+          <td>{{ libro.precio }}</td>
+          <td>{{ libro.cantidad }}</td>
+          <td>{{ libro.agotado }}</td>
+          <td>{{ libro.genero }}</td>
+          <td>
+            <a href="/libro/comprarLibro/{{ id_autor }}/{{ libro.issn }}">Comprar</a>
+          </td>
+          <!--
+          <td>
+            <a href="/libro/reservarLibro/{{ id_autor }}/{{ libro.issn }}">Reservar</a>
+          </td>
+          -->
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h1>No existen libros registrados</h1>
+  {% endif %}
+
+{% endblock %}

@@ -36,3 +36,8 @@ class libroForm(forms.ModelForm):
     class Meta:
         model = libro
         fields = '__all__'
+
+class compraForm(forms.ModelForm):
+    class Meta:
+        model = carrito
+        fields = '__all__'

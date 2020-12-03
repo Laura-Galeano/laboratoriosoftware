@@ -28,7 +28,14 @@
                                     <li><a class="titulo-menu eliminar-cuenta" href="#">Eliminar cuenta</a></li>
                                     <li><a class="opciones active" href="/libro/editarAutor/{{id_autor}}"><span class="material-icons">settings</span>Información general</a></li>
                                     <!--<li><a class="opciones" href="#"><span class="material-icons">lock</span>Cambiar contraseña</a></li>-->
-                                    <li><a class="opciones" href="/libro/adminTarjeta/{{id_autor}}"><span class="material-icons">account_balance_wallet</span>Datos financieros</a></li>
+                                    {% if tipo_autor == "Cliente" %}
+                                      <li><a class="opciones" href="/libro/adminTarjeta/{{id_autor}}"><span class="material-icons">account_balance_wallet</span>Datos financieros</a></li>
+                                    {% endif %}
+                                    {% if tipo_autor == "Administrador" %}
+                                      <li><a class="opciones" href="/libro/adminLibros"><span class="material-icons">account_balance_wallet</span>Datos de los libros</a></li>
+                                    {% else %}
+                                      <li><a class="opciones" href="/libro/listarLibros/{{id_autor}}"><span class="material-icons">account_balance_wallet</span>Comprar libro</a></li>
+                                    {% endif %}
                                 </ul>
                             </nav>
                         </div>
